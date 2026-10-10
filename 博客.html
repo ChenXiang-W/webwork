@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang = "en">  
+    <head>
+        <meta charset=" UTF-8">
+        <meta name = "viewport" content = "width=device-width,initial-scale-=1.0">
+        <title>博客</title>
+         <link rel="stylesheet" href="博客.css">
+    </head>
+    <body id = "top">
+        <header class = "site-header">  
+                <h1 class = "site-title">个人博客</h1> 
+                <div class = "header-row">   
+                <a href = "#about">链接1</a>
+                <a href = "#">链接2</a>
+                <a href = "#">链接3</a>
+                </div>
+            <!-- 页头 -->
+        </header>
+        <div class = "">
+        </div>
+        <main class = "container main">
+            <div class = "article">
+            <section class = "feed">  
+                <h2>我的第一篇博客</h2>
+                <p>这是我的第一篇博客，用来记录我的学习和生活。</p>
+            </section>
+
+            <section class = "feed">
+                <h2>关于学习html的记录</h2>
+                <p style = "text-indent: 2em;">学习过程中通过查询资料，询问ai并将有用的结果截图保存，方便记忆，在后续阅读时增加自己的体会</p>
+                <a href = "./学习.docx"  download = "学习笔记">笔记</a>
+            </section>
+            <section class = "feed">
+                <h2>css的学习</h2>
+            </section>
+
+            <section>
+                <!--这是一个表单        -->
+                <form class = "contact-form" action = "/submit" method = "post">
+                    <label for = "name">姓名： </label>
+                    <input type = "text" id = "name" name = "name" required>
+                    <br>
+                    <label for = "email">练习邮箱： </label>
+                    <input type = "email" id = "email" name = "email" required>
+                    <br>
+                    <label for = "radio">你最喜欢的关注的内容</label>
+                    <div>
+                    <input type = "radio" id = "html" name = "content" value = "html">
+                    <label for = "html">前端学习</label>
+                    <input type = "radio" id = "生活分享" name = "content" value = "css"> 
+                    <label for = "生活分享">生活分享</label>
+                    </div>
+                    <br>
+                    <label for = "留言">留言：</label>
+                    <textarea id = "留言" name = "留言" rows = "4" cols = "50"></textarea>
+                    <br>
+                    <button type = "submit">提交</button>
+                </form>
+            </section>
+            </div>
+            
+            <aside class = "sidebar" id = "about">
+                <section class = "panel">
+                    <h2>我的个人博客</h2>
+                    <p>一名学习web开发的学生</p>
+                </section>
+                <section class = "panel">
+                    <h2>博客分类</h2>
+                    <ul>
+                        <li><a href = "#">前端学习</a></li>
+                        <li><a href = "#">生活分享</a></li>
+                    </ul>
+                </section>
+                <section class = "panel">
+                    <h2>学习记录</h2>
+                    <p>学习html标签</p>
+                    <p>学习css</p>
+                </section>
+            </aside>
+        </main>
+        <footer class = "site-footer">
+            <!-- 页脚 -->
+             <div class = 'footer'>
+                 陈想 12403070619
+             </div>
+        </footer>
+
+    </body>
+</html>
