@@ -91,10 +91,29 @@ ul li{
     background-color: rgb(244, 249, 249);
 }
 .footer{
-    position: fixed;
     color:#222323;
     bottom: 5px;
     right: 10px;
     font-size: 12px; /* 字体大小 */
     opacity: 0.5; /* 透明度 */
+}
+#back-top{
+    background-color: #eff4f4;
+    color: #021313;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px; /* 字体大小 */
+    opacity: 1; /* 透明度 */
+}
+#type{
+    background-color: #eff4f4;
+    color: #021313;
+    
+}
+body.bg1{
+    background-color: rgb(232, 222, 222);
+}
+body.bg2{
+    background-color: rgb(47, 64, 64);
 }

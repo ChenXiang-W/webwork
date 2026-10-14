@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript 基础语法练习：学生成绩统计</title>
+     
+  </head>
+  <body>
+    <h1>JS基础语法练习：学生成绩统计</h1>
+
+    <script>
+      // 1 常量定义const和变量定义let
+      // Q1：为什么姓名和成绩用const，结果用let定义？const定义的就不能重新赋值么？
+      //const定义的是常量，初始化值后不能修改，姓名和成绩只需要一次赋值，
+      // let定义的是变量，结果可以根据过程判断是否需要重新赋值。
+      //const定义的变量不能重新赋值，它锁的是内存的地址。
+      const studentName = "小林";
+      const studentScore = 86;
+
+      // Q2：这里let定义后，result的值是什么？能否直接改为const result;？
+      //
+      let result;
+      console.log(result);
+      //result的值是undefined,不能改为const，因为const会锁住初始化值的地址，不能先初始化再赋值，
+      // 这样跟const初始化后改值是一样的。
+
+      if (studentScore >= 60) {
+        result = "及格";
+      } else {
+        result = "不及格";
+      }
+      console.log("第1步：小林的成绩：", studentScore, "结果：", result);
+
+      // 2 把判断封装成函数（匿名函数、箭头函数）
+      // Q3：这个函数是具名函数还是匿名函数？为什么没有写参数类型和返回值类型？
+      //这是一个具名函数，因为javascript是动态类型语言，参数和返回值不需要声明类型，
+      //解释器会在运行时自动判断。
+      function isPass(score) {
+        return score >= 60;
+      }
+      console.log("第2步：通过函数判断小林是否及格", isPass(86));
+
+      // Q4：传入字符串"86"和没有传入参数会输出什么？
+      //传入'86'会输出true,因为js会将字符串'86'转换为数字86
+      //没有传入参数的输出false,没有参数传入时，js会将参数设置为undefined，
+      // 然后将undefined转换为数字NaN,它不是一个有效的数字，所有返回false.
+      console.log("传入字符串的输出：",isPass("86")); 
+      console.log("没有传入参数输出：",isPass());
+
+      // Q5：将isPass()改为匿名函数表达式
+      const ispass=function(score){
+        return score >= 60;
+      }
+
+      // Q6：将isPass()改为箭头函数表达式
+
+      const ispassArrow = score => {
+        return score >= 60;
+      };
+
+      score => {score >= 60;};
+
+      // Q7:以下函数的输出是什么？
+      //undefined
+      const isPassArrow = score => {
+        score >= 60;
+      };
+      console.log(isPassArrow(86)); 
+
+      // 3 对象
+      // Q8:在对象定义中增加一个新属性：年龄为20；添加一个方法hisName，用this打印学生的姓名
+
+      const student = { 
+        name: "小林", 
+        score: 86,
+        age:20,
+        hisName:function(){
+          console.log(this.name);
+        }
+      };
+      // 【拓展】在创建对象后动态添加属性和方法
+      //创建对象后可以使用.号添加属性和方法
+      student.age=21;
+      student.hisName();
+      
+      // 4 数组
+      // Q9：修改数组中小林的成绩为70；用push()增加一个学生，姓名小邓，成绩99
+      const students = [
+        { name: "小林", score: 86 },
+        { name: "小周", score: 55 },
+        { name: "小陈", score: 92 },
+        { name: "小吴", score: 60 },
+      ];
+      students[0].score=70;
+      students.push({name:"小邓",score:99});
+      let total = 0;
+      let passedCount = 0;
+
+      // 5 普通for循环
+      for (let i = 0; i < students.length; i++) {
+        const student = students[i];
+
+        total += student.score;
+        if (isPass(student.score)) {
+          passedCount += 1;
+        }
+      }
+      console.log("第4步：及格人数", passedCount);
+      console.log("平均分", total / students.length);    
+
+      // Q10：不使用索引i，改用for...of循环遍历数组，计算相同
+      for (const student of students) {
+        total += student.score;
+        if (isPass(student.score)) {
+          passedCount += 1;
+        }
+      }   
+
+      // 【拓展】for...of与for...in的区别
+      //for...of是拿到可迭代元素的值，不是下标
+      //for...in拿到的是下标字符串，适合遍历对象的键名
+
+
+      // 6 模板字符串
+
+      const firstStudent = students[0];
+      console.log(`第6步：模板字符串输出：第一位学生是${firstStudent.name}，成绩${firstStudent.score}分`);
+      
+      // Q11：${}内可以调用已有的函数isPass()么？
+      console.log(`第1位学生是否及格：${isPass(firstStudent.score)}`);
+
+    </script>
+  </body>
+</html>
