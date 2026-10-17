@@ -11,7 +11,6 @@ body{
     gap:20px;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(244, 249, 249);
     padding:20px;
     border-bottom:1px solid #dfe5df;
     
@@ -36,7 +35,6 @@ body{
 
 .feed{
     flex:1;
-    background-color: white;
     min-width:0;
     width:360px;
     border: 2px solid #e37979;
@@ -50,7 +48,6 @@ body{
 }
 
 .panel{
-    background-color: white;
     margin-bottom:20px;
     padding:16px;
     border:1px solid #e37979;
@@ -88,7 +85,6 @@ ul li{
     text-align: right;
     margin-top:20px;
     padding:20px;
-    background-color: rgb(244, 249, 249);
 }
 .footer{
     color:#222323;

@@ -1,6 +1,6 @@
-.site-header
-.feed 
-.panel
+.site-header,
+.feed ,
+.panel,
 .site-footer{
      background-color: rgb(244, 249, 249);
 }

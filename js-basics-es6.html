@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript 基础语法练习：学生成绩统计</title>
+  </head>
+  <body>
+    <h1>JS基础语法练习：学生成绩统计</h1>
+    <script>
+      // 1 常量定义const和变量定义let
+      // Q1：为什么姓名和成绩用const，结果用let定义？const定义的就不能重新赋值么？
+      const studentName = "小林";
+      const studentScore = 86;
+      // Q2：这里let定义后，result的值是什么？能否直接改为const result;？
+      let result;
+      if (studentScore >= 60) {
+        result = "及格";
+      } else {
+        result = "不及格";
+      }
+      console.log("第1步：小林的成绩：", studentScore, "结果：", result);
+      // 2 把判断封装成函数（匿名函数、箭头函数）
+      // Q3：这个函数是具名函数还是匿名函数？为什么没有写参数类型和返回值类型？
+      function isPass(score) {
+        return score >= 60;
+      }
+      console.log("第2步：通过函数判断小林是否及格", isPass(86));
+
+      // Q4：传入字符串"86"和没有传入参数会输出什么？
+      console.log("传入字符串的输出：", isPass("86"));
+      console.log("没有传入参数输出：", isPass());
+
+      // Q5：将isPass()改为匿名函数表达式
+      const isPassAnony = function (score) {
+        return score >= 60;
+      };
+      console.log("Q5匿名函数测试：", isPassAnony(70));
+
+      // Q6：将isPass()改为箭头函数表达式
+      const isPassArrow6 = (score) => score >= 60;
+      console.log("Q6箭头函数测试：", isPassArrow6(59));
+
+      // Q7:以下函数的输出是什么？
+      const isPassArrow = (score) => {
+        score >= 60;
+      };
+      console.log(isPassArrow(86));
+
+      // 3 对象
+      // Q8:在对象定义中增加一个新属性：年龄为20；添加一个方法hisName，用this打印学生的姓名
+      const student = {
+        name: "小林",
+        score: 86,
+        age: 20,
+
+        // ES6-1:对象方法的简写
+        hisName: function () {
+          console.log(this.name);
+        },
+      };
+      student.hisName();
+
+      // 【拓展】在创建对象后动态添加属性和方法
+      student.gender = "男";
+      student.sayHi = function () {
+        console.log(`你好，${this.name}`);
+      };
+      student.sayHi();
+
+      // 4 数组
+      // Q9：修改数组中小林的成绩为70；用push()增加一个学生，姓名小邓，成绩99
+      const students = [
+        { name: "小林", score: 86 },
+        { name: "小周", score: 55 },
+        { name: "小陈", score: 92 },
+        { name: "小吴", score: 60 },
+      ];
+      students[0].score = 70;
+      students.push({ name: "小邓", score: 99 });
+      console.log("Q9修改后的数组：", students);
+
+      let total = 0;
+      let passedCount = 0;
+      // 5 普通for循环
+      for (let i = 0; i < students.length; i++) {
+        const student = students[i];
+        total += student.score;
+        if (isPass(student.score)) {
+          passedCount += 1;
+        }
+      }
+      console.log("第4步：及格人数", passedCount);
+      console.log("平均分", total / students.length);
+
+      // Q10：不使用索引i，改用for...of循环遍历数组，计算相同
+      let total2 = 0;
+      let passedCount2 = 0;
+      for (const item of students) {
+        total2 += item.score;
+        if (isPass(item.score)) {
+          passedCount2++;
+        }
+      }
+      console.log("Q10 for-of 及格人数：", passedCount2);
+      console.log("Q10 for-of 平均分：", total2 / students.length);
+
+      // 【拓展】for...of与for...in的区别
+      // 6 模板字符串
+      const firstStudent = students[0];
+      console.log(
+        `第6步：模板字符串输出：第一位学生是${firstStudent.name}，成绩${firstStudent.score}分`,
+      );
+
+
+      // ES6-2：对象的解构：从对象中取出属性值，赋值给变量
+      const { firstStudentName, firstStudentScore } = firstStudent;
+      // 观察这里的输出结果？
+      console.log(`ES6-2对象解构后输出：${firstStudentName}, ${firstStudentScore}`);
+
+      // Q11：${}内可以调用已有的函数isPass()么？
+      console.log(`第1位学生是否及格：${isPass(firstStudent.score)}`);
+
+      // ====================== 新增Vue高频ES6练习======================
+      // ES6-3：使用数组的filter方法筛选及格学生，得到一个新数组
+
+
+      // ES6-4：使用数组的map方法提取学生姓名，得到一个新数组
+
+      
+      // ES6-5：扩展运算符：新建一个对象，复制firstStudent对象，修改score=80，新增gender:"女"
+
+    </script>
+  </body>
+</html>

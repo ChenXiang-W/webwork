@@ -1,3 +1,7 @@
+    window.onload=function(){
+        console.log("页面加载完成");
+    };
+
 const backTotopBtn = document.getElementById('back-top');
 
     window.addEventListener("scroll",function(){

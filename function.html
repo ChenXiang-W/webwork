@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数的示例</title>
+  </head>
+  <body>
+    <script>
+      // const注意事项
+      // 以下哪些语句会报错？
+      const age = 18;
+      age = 20;
+
+      const user = { name: "小明" };
+      user.name = "小红";
+      console.log("修改const定义的对象中的属性：",user.name); 
+
+      const arr = [1, 2, 3];
+      arr.push(4);
+      arr = [10, 20];
+      console.log("修改const定义的数组：",arr);
+
+      // 普通函数的示例
+      function add(a, b) {
+        return a + b;
+      }
+      console.log("2 + 3 =", add(2, 3));
+
+      // 匿名函数的示例
+      const addAnother = function (a, b) {
+        return a + b;
+      };
+      console.log("2 + 3 =", addAnother(2, 3));
+
+// -----------------------------------------------------------------------
+      // 箭头函数的示例
+      const addArrow = (a, b) => a + b;
+      console.log("2 + 3 =", addArrow(2, 3));
+
+      // 不带参数的箭头函数示例
+      const greet = () => console.log("Hello, world!");
+      greet();
+
+// -----------------------------------------------------------------------
+      // 立即执行函数的示例（少）
+      (function () {
+        console.log("这是一个立即执行函数");
+      })();
+      // 带参数的立即执行函数示例
+      (function (a, b) {
+        console.log("2 + 3 =", a + b);
+      })(2, 3);
+
+//-----------------------------------------------------------------------
+      // 函数中this的含义示例
+      // 普通函数
+      const student = {
+        name: "小明",
+        say: function () {
+          console.log(this.name);
+        },
+      };
+      student.say(); 
+
+      // 箭头函数
+      const person = {
+        name: "小明",
+        say: () => {
+          console.log(this.name);
+        },
+      };
+      person.say(); // this全局
+    </script>
+  </body>
+</html>
